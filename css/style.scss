@@ -1,0 +1,304 @@
+@charset "utf-8";
+/*
+Theme Name:テンプレ
+Theme URI:
+Description:
+Version: 999
+Author:
+Author URI:
+*/
+@import "temp";
+
+/*　reset css　*/
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+  //adobeフォント使用の際表示
+  visibility: hidden;
+  font-size: clamp(14px, 1.4vw, 20px);
+}
+//adobeフォント使用の際表示
+html.wf-active,
+html.loading-delay {
+  visibility: visible;
+}
+* {
+  box-sizing: border-box;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+figure {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  table-layout: fixed;
+  th,
+  td {
+    box-sizing: border-box;
+  }
+}
+fieldset,
+img {
+  border: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+caption,
+th {
+  text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+q:before,
+q:after {
+  content: "";
+}
+abbr,
+acronym {
+  border: 0;
+}
+#printarea {
+  display: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: top;
+  image-rendering: -webkit-optimize-contrast;
+}
+/*　reset css end　*/
+
+/* 全体設定 */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #333;
+  font-size: clamp(16px, 1.4vw, 20px);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  transition-duration: 0.3s;
+  opacity: 0.7;
+}
+.clearboth {
+  clear: both;
+}
+.alignleft,
+img.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 24px;
+  margin-top: 4px;
+}
+.alignright,
+img.alignright {
+  display: inline;
+  float: right;
+  margin-left: 24px;
+  margin-top: 4px;
+}
+.aligncenter,
+img.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+img.alignleft,
+img.alignright,
+img.aligncenter {
+  margin-bottom: 12px;
+}
+h1 {
+  @include size(font-size, 150);
+  font-weight: bold;
+}
+h2 {
+  font-size: 2.1em;
+  font-weight: bold;
+}
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+h4 {
+  font-size: 14px;
+}
+.text_right {
+  text-align: right;
+}
+.nijimi {
+  font-family: $f_nijimi;
+  line-height: 1;
+  color: #555;
+  rotate: 0.01deg;
+}
+.inner {
+  width: min(100%, 1040px);
+  margin: auto;
+  padding: 15px;
+}
+
+.pc_768,
+.pc_767,
+.pc_540 {
+  display: block;
+}
+
+.sp_768,
+.sp_767,
+.sp_540 {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .pc_768 {
+    display: none;
+  }
+  .sp_768 {
+    display: block;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pc_767 {
+    display: none;
+  }
+  .sp_767 {
+    display: block;
+  }
+}
+@media screen and (max-width: 540px) {
+  .pc_540 {
+    display: none;
+  }
+  .sp_540 {
+    display: block;
+  }
+}
+
+/* 全体設定end */
+
+/**************************************************************
+header
+**************************************************************/
+@import "nav";
+
+header {
+  height: 100px;
+  @include flex_a_cen;
+  background: #fff;
+  position: fixed;
+  .inner {
+    @include flex_bet_cen;
+    padding: 0 15px;
+  }
+
+  width: 100%;
+  z-index: 99;
+
+  .logo {
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1000;
+  }
+  //ヘッダースクロールでクラス付与の処理
+  transition: 0.3s;
+  &.scroll {
+    background: #fff;
+    box-shadow: 0 0 10px #000;
+  }
+  //ヘッダースクロールでクラス付与の処理ここまで
+}
+
+/**************************************************************
+footer
+**************************************************************/
+/*共通*/
+address {
+  text-align: center;
+  background: #3b7bb2;
+  line-height: 55px;
+}
+address,
+address a {
+  color: #fff;
+}
+/*共通ここまで*/
+
+/**************************************************************
+main
+**************************************************************/
+main {
+  position: relative;
+  padding-top: 100px;
+  overflow: hidden;
+
+  .back_gray {
+    background: #f6f5f3;
+    border-radius: 15px;
+    padding: 4.5rem 4rem;
+    width: min(100%, 1200px);
+    margin: auto;
+  }
+
+  .mv {
+    background: url(../image/mv.jpg) center / cover no-repeat;
+    aspect-ratio: 1920/835;
+    position: relative;
+    h1 {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+  }
+}

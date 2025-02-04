@@ -1,0 +1,159 @@
+@mixin max_w($wid, $margin) {
+  max-width: $wid;
+  margin: $margin;
+}
+@mixin grid($rep, $gap: 0) {
+  display: grid;
+  grid-template-columns: repeat($rep, 1fr);
+  gap: $gap;
+}
+@mixin flex($gap) {
+  display: flex;
+  gap: $gap;
+}
+@mixin flex_a_cen($gap: 0) {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+}
+@mixin flex_bet($gap: 0) {
+  display: flex;
+  justify-content: space-between;
+  gap: $gap;
+}
+@mixin flex_cen($gap: 0) {
+  display: flex;
+  justify-content: center;
+  gap: $gap;
+}
+@mixin flex_bet_cen($gap: 0) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $gap;
+}
+@mixin flex_cen_cen($gap: 0) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+}
+@mixin arrow($color, $rotate) {
+  content: "";
+  border-right: 1px solid $color;
+  border-bottom: 1px solid $color;
+  rotate: $rotate;
+  width: 0.5em;
+  height: 0.5em;
+  margin-top: -0.2em;
+}
+@mixin right {
+  @include flex_bet();
+  align-items: flex-start;
+  &::before {
+    content: "";
+    width: 280px;
+    display: block;
+  }
+  .right {
+    width: calc(100% - (280px + 90px));
+  }
+}
+@mixin icon($icon: null) {
+  @if $icon {
+    content: $icon; // 変数が渡された場合
+  } @else {
+    content: ""; // 変数が空の場合
+  }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: icomoon !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: none;
+}
+
+@mixin size($property, $base-size) {
+  // vw単位での計算結果を文字列として定義し、pxは含まない
+  $calculated-vw: #{round(($base-size / 19.2) * 100) / 100}vw;
+
+  // プロパティに適用、min関数の式を文字列として渡す
+  #{$property}: min(#{$calculated-vw}, #{$base-size}px);
+
+  //使用例
+  //@include size(margin-bottom, 500);
+  //出力
+  //margin-bottom: min(25.64vw, 500px);
+}
+
+@mixin size02($property, $sizes...) {
+  // 各サイズに対してmin関数を適用し、リストとして結合
+  $result: (); // 空のリストとして初期化
+  @each $size in $sizes {
+    // サイズが0の場合はそのまま0にする
+    @if $size == 0 {
+      $result: append($result, 0);
+    } @else {
+      $calculated-vw: #{round(($size / 19.2) * 100) / 100}vw;
+      $result: append($result, min(#{$calculated-vw}, #{$size}px));
+    }
+  }
+
+  // プロパティに出力
+  #{$property}: $result;
+
+  //使用例
+  // @include size02(margin, 500, 1000);
+  //出力
+  //margin: min(25.64vw, 500px) min(51.28vw, 1000px);
+}
+
+@mixin size_cl($property, $min-size, $max-size) {
+  // 中間のvw単位の計算（四捨五入して小数点2桁まで）
+  $calculated-vw: #{round(($max-size / 12.5) * 100) / 100}vw;
+
+  // プロパティにclamp関数を使って適用
+  #{$property}: clamp(#{$min-size}px, #{$calculated-vw}, #{$max-size}px);
+
+  //使用例
+  // @include size_cl(width, 500, 1000);
+  //出力
+  //width: clamp(500px, 25.64vw, 1000px);
+}
+
+@mixin size_cl02($property, $sizes...) {
+  // 結果を格納する空リストを初期化
+  $result: ();
+
+  @each $size in $sizes {
+    // 最小値と最大値を取得
+    $min-size: nth($size, 1);
+    $max-size: nth($size, 2);
+    // 中間のvw計算（vw=1.54は基準に応じて調整）
+    $calculated-vw: #{round(($max-size / 12.5) * 100) / 100}vw;
+
+    // clamp関数で値を構成し、リストに追加
+    $result: append(
+      $result,
+      clamp(#{$min-size}px, #{$calculated-vw}, #{$max-size}px),
+      space
+    );
+  }
+
+  // プロパティに出力
+  #{$property}: $result;
+  //使用例
+  // @include size_cl02(margin, (15, 30), (20, 40), (20, 50));
+  //出力
+  //margin: clamp(15px, 0.77vw, 30px) clamp(20px, 1.03vw, 40px) clamp(20px, 1.03vw, 50px);
+}
+
+$f_yu: "Zen Kaku Gothic New", sans-serif;
+$f_noto: "Noto Sans JP", sans-serif;
+$f_nijimi: "dnp-shuei-nmincho-std", sans-serif;
+
+$gra: #cdd6dd;
+$black: #555;
+$ore: #f15a22;

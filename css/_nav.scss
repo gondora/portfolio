@@ -119,11 +119,17 @@
   font-size: 14px;
   letter-spacing: 0.1em;
   font-weight: bold;
+  @media screen and (max-width: 540px) {
+    top: 10px;
+  }
 
   .openbtn1 {
     width: 50px;
     margin-bottom: 40vh;
     cursor: pointer;
+    @media screen and (max-width: 540px) {
+      margin-bottom: 0;
+    }
 
     span {
       display: block;
@@ -165,6 +171,9 @@
   } //openbtn1
 
   .scroll {
+    @media screen and (max-width: 540px) {
+      display: none;
+    }
     a {
       position: relative;
       height: min(11vh, 100px);

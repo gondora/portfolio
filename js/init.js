@@ -42,7 +42,7 @@ jQuery(function ($) {
 /*totop*/
 $(function () {
   $('a[href^="#"]').click(function () {
-    var adjust = -113; // 移動先調整
+    var adjust = -65; // 移動先調整
     var speed = 400; // 速度
     var href = $(this).attr("href"); // アンカーの値取得 リンク先（href）を取得して、hrefという変数に代入
     var target = $(href == "#" || href == "" ? "html" : href); // 移動先を取得 リンク先(href）のidがある要素を探して、targetに代入
@@ -51,6 +51,18 @@ $(function () {
     return false;
   });
 });
+// $(function () {
+//   $('a[href^="#"]').click(function () {
+//     var speed = 400; // スクロール速度
+//     var headerHeight = $("header").outerHeight(); // ヘッダーの高さを取得
+//     var href = $(this).attr("href"); // アンカーの値取得
+//     var target = $(href == "#" || href == "" ? "html" : href); // 移動先を取得
+//     var position = target.offset().top - headerHeight; // ヘッダーの高さ分調整
+
+//     $("body,html").animate({ scrollTop: position }, speed, "swing");
+//     return false;
+//   });
+// });
 
 //scrollとTotopスクロール
 document.addEventListener("DOMContentLoaded", function () {
@@ -90,38 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", toggleScrollClass);
 });
 
-//スクロール
-// const scrollNum = document.getElementById("scroll-num"); //スクロール量計測
-
-// window.addEventListener("scroll", function () {
-//   // scrollNum.textContent = window.pageYOffset; //スクロール量計測
-
-//   let targets = document.querySelectorAll(".fadeInTrigger"); //アニメーションさせたい要素
-//   let targets02 = document.querySelectorAll(".flow"); //アニメーションさせたい要素
-
-//   //スクロールイベント
-//   var scroll = window.scrollY; //スクロール量を取得
-//   var windowHeight = window.innerHeight; //画面の高さを取得
-//   for (let target of targets) {
-//     //ターゲット要素がある分、アニメーション用のクラスをつける処理を繰り返す
-//     var targetPos = target.getBoundingClientRect().top + scroll; //ターゲット要素の位置を取得
-//     if (scroll > targetPos - windowHeight) {
-//       //スクロール量 > ターゲット要素の位置
-//       target.classList.add("fadeIn"); //is-animatedクラスを加える
-//     }
-//   }
-
-//   for (let target of targets02) {
-//     // ターゲット要素がある分、アニメーション用のクラスをつける処理を繰り返す
-//     var targetPos = target.getBoundingClientRect().top + scroll; // ターゲット要素の位置を取得
-//     if (scroll > targetPos - windowHeight) {
-//       // スクロール量 > ターゲット要素の位置
-//       target.classList.add("img_flow"); // img_flowクラスを加える
-//     }
-//   }
-// });
-//スクロールここまで
-
 //ヘッダーがスクロールしたらクラス付与
 window.addEventListener("scroll", function () {
   // ヘッダーを変数の中に格納する
@@ -129,30 +109,6 @@ window.addEventListener("scroll", function () {
   // 50px以上スクロールしたらヘッダーに「scroll」クラスをつける
   header.classList.toggle("scroll", window.scrollY > 50);
 });
-
-//スクロールでクラス付与
-// function handleScrollAnimation(selector, addClass, offset) {
-//   $(selector).each(function () {
-//     var elemPos = $(this).offset().top - offset;
-//     var scroll = $(window).scrollTop();
-//     var windowHeight = $(window).height();
-
-//     if (scroll >= elemPos - windowHeight) {
-//       $(this).addClass(addClass);
-//     }
-//   });
-// }
-
-// $(window).scroll(function () {
-//   handleScrollAnimation(".add_color", "back_color", -300); //カラー
-//   handleScrollAnimation(".fadeInTrigger", "fadeIn", 80); //ふわっと出現
-//   handleScrollAnimation(".flow", "img_flow", 80);
-//   handleScrollAnimation(
-//     ".recruit_top .sec08 .fadeInTrigger",
-//     "sec08 fadeIn",
-//     150
-//   );
-// });
 
 //ボタン展開
 document.querySelectorAll("#works li .title_but span").forEach((button) => {
@@ -162,14 +118,14 @@ document.querySelectorAll("#works li .title_but span").forEach((button) => {
     if (box.classList.contains("open")) {
       // 閉じるとき
       box.style.height = "0px";
-      box.style.padding = "0 4em";
+      // box.style.padding = "0 4em";
       box.classList.remove("open");
       this.classList.remove("open_but");
     } else {
       // 開くとき
       const textHeight = box.scrollHeight; // 実際の高さを取得
       box.style.height = textHeight + "px";
-      box.style.padding = "2.25em 4em";
+      // box.style.padding = "2.25em 4em";
       box.classList.add("open");
       this.classList.add("open_but");
     }
@@ -214,4 +170,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ボタンをクリックしたら次の10件を表示
   loadMoreButton.addEventListener("click", showItems);
+});
+
+//liの数取得
+document.addEventListener("DOMContentLoaded", function () {
+  // `#list` の中の `li` をすべて取得
+  const listItems = document.querySelectorAll("#list li");
+
+  // `li` の数を取得
+  const itemCount = listItems.length;
+
+  // 表示する要素を作成
+  const countDisplay = document.createElement("p");
+  countDisplay.id = "itemCount"; // IDをつける
+  countDisplay.textContent = `${itemCount}件`; // "〇件" の形式にする
+
+  // `#list` の前に追加（または他の場所に追加）
+  document
+    .getElementById("list")
+    .insertAdjacentElement("beforebegin", countDisplay);
+});
+
+//li自動ID
+document.addEventListener("DOMContentLoaded", function () {
+  // `#list` の中の `li` をすべて取得
+  const listItems = document.querySelectorAll("#list li");
+
+  // 1 ～ 3 個目の `li` に `id="num01"` ～ `id="num03"` を付与
+  listItems.forEach((li, index) => {
+    if (index < 3) {
+      // 3つ目まで
+      const num = String(index + 1).padStart(2, "0"); // "01", "02", "03" に変換
+      li.id = `num${num}`;
+    }
+  });
 });

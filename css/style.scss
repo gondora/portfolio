@@ -3,8 +3,8 @@
 
 /*　reset css　*/
 html {
-  scroll-padding-top: 80px;
-  scroll-behavior: smooth;
+  // scroll-padding-top: 80px;
+  // scroll-behavior: smooth;
   //adobeフォント使用の際表示
   // visibility: hidden;
   // font-size: clamp(14px, 1.4vw, 20px);
@@ -108,7 +108,7 @@ body {
   font-family: "Noto Sans JP", sans-serif;
   color: #474747;
   font-size: clamp(16px, 1.4vw, 20px);
-  background: #ffe7d2;
+  // background: #ffe7d2;
 }
 a {
   text-decoration: none;
@@ -156,6 +156,12 @@ p {
   width: min(100%, 1400px);
   margin: auto;
   padding: 0 100px;
+}
+@media screen and (max-width: 540px) {
+  .inner,
+  .inner_1200 {
+    padding: 0 20px;
+  }
 }
 
 .pc_768,
@@ -208,9 +214,7 @@ header
 @import "nav";
 
 header {
-  // height: 100px;
   @include flex_a_cen;
-  // background: #fff;
   position: fixed;
   padding: 0 20px;
   .inner {
@@ -219,7 +223,7 @@ header {
   }
 
   width: 100%;
-  // z-index: 99;
+  z-index: 99;
 
   .logo {
     position: relative;
@@ -229,8 +233,10 @@ header {
   //ヘッダースクロールでクラス付与の処理
   transition: 0.3s;
   &.scroll {
+    background: #fff;
     .logo {
-      font-size: 1vw;
+      font-size: 19px;
+      // font-size: min(1vw, 19px);
     }
   }
   //ヘッダースクロールでクラス付与の処理ここまで
@@ -260,6 +266,9 @@ main {
   position: relative;
   overflow: hidden;
   padding-top: 9em;
+  // @media screen and (max-width: 1000px){
+  //   padding-top: ;
+  // }
 
   section {
     margin-bottom: 10rem;
@@ -350,15 +359,6 @@ main {
           }
         }
       }
-
-      @media screen and (max-width: 1000px) {
-        margin-top: 2rem;
-        height: unset;
-        flex-wrap: wrap;
-        li {
-          width: 100%;
-        }
-      }
     } //ul
     .title {
       @include flex_bet;
@@ -366,7 +366,7 @@ main {
       width: 30%;
       margin-left: auto;
       height: 6em;
-      margin-top: -6rem;
+      margin-top: -7.5rem;
       position: relative;
       z-index: 1;
       h2 {
@@ -376,9 +376,20 @@ main {
         @include flex;
         align-items: end;
       }
-      @media screen and (max-width: 1000px) {
-        margin: 3rem 0 0;
-        width: 50%;
+    }
+    @media screen and (max-width: 1000px) {
+      ul {
+        margin-top: 2rem;
+        li {
+          &:nth-of-type(3) {
+            display: none;
+          }
+          width: 45%;
+        }
+      }
+      .title {
+        margin: 2rem 0 0;
+        width: 100%;
       }
     }
   } //mv
@@ -388,10 +399,8 @@ main {
       margin-bottom: 0;
     }
     .grid {
-      @include grid_size(30% 62%);
+      @include grid_size(30% 62%, 2rem);
       justify-content: space-between;
-      // width: 89vw;
-      // margin: 0 calc(44.5% - 44.5vw);
     }
     li {
       @include flex(0.5em);
@@ -405,11 +414,19 @@ main {
       color: #63e6be;
       // margin-bottom: 10px;
     }
+    @media screen and (max-width: 1000px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      ul {
+        @include grid(2, 2rem);
+      }
+    }
   } //skills
 
   .about {
     .grid {
-      @include grid_size(55% 39%);
+      @include grid_size(55% 39%, 2rem);
       justify-content: space-between;
 
       .text_wrap {
@@ -429,10 +446,16 @@ main {
           font-size: 0.7em;
         }
       }
+      @media screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+      }
     } //grid
   } //about
 
   .works {
+    #itemCount {
+      text-align: right;
+    }
     ul {
       margin-bottom: 1.5rem;
       li {
@@ -454,7 +477,7 @@ main {
         }
         .title_but {
           padding: 1em 2.25em;
-          @include flex_bet_cen;
+          @include flex_bet_cen(2rem);
           a {
             @include flex_a_cen(0.5em);
             font-weight: bold;
@@ -466,6 +489,8 @@ main {
               border-radius: 100%;
               background: #474747;
               margin-top: 0.2em;
+
+              flex-shrink: 0;
             }
           }
           span {
@@ -497,6 +522,10 @@ main {
               rotate: 135deg;
             }
           }
+          @media screen and (max-width: 768px) {
+            font-size: 14px;
+            padding: 14px;
+          }
         } //title_but
         .box {
           // padding: 2.25em 4em;
@@ -505,8 +534,11 @@ main {
           overflow: hidden;
           transition: all 0.4s ease-in-out;
           box-sizing: content-box;
-          @include grid_size(20% 75%);
+          @include grid_size(20% 75%, 2rem);
           justify-content: space-between;
+          &.open {
+            padding: 2.25em 4em;
+          }
 
           .left {
             p {
@@ -516,7 +548,7 @@ main {
             }
           } //left
           .right {
-            display: flex;
+            @include flex(2rem);
             flex-direction: column;
 
             p {
@@ -524,6 +556,19 @@ main {
             }
             .arrow_link {
               margin-left: auto;
+            }
+          }
+          @media screen and (max-width: 950px) {
+            grid-template-columns: 1fr;
+            padding: 0 2rem;
+            &.open {
+              padding: 1.5rem;
+            }
+            .left {
+              @include flex(2rem);
+              p {
+                margin-bottom: unset;
+              }
             }
           }
         }

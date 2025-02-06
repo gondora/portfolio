@@ -29,8 +29,8 @@
         <div class="openbtn1">
           <span></span><span></span><span></span><span class="menu">MENU</span>
         </div>
-        <div class="scroll">
-          <p>scroll</p>
+        <div id="scroll" class="scroll">
+          <a href="#"><span>Scroll</span></a>
         </div>
       </div>
 
@@ -71,7 +71,7 @@
               PHP、HTML、CSS、JavaScript を駆使してWebサイトを構築します。
             </p>
 
-            <ul>
+            <ul id="imgList">
               <li><img src="image/work01.jpg" /></li>
               <li><img src="image/work01.jpg" /></li>
               <li><img src="image/work01.jpg" /></li>
@@ -83,7 +83,9 @@
               Works
               <span>制作実績</span>
             </h2>
-            <a href="#works" class="arrow_link">View more<span></span></a>
+            <div class="link_box">
+              <a href="#works" class="arrow_link">View more<span></span></a>
+            </div>
           </div>
         </div>
       </section>
@@ -1116,44 +1118,18 @@
         <div class="logo">
           <a href="index.html">Osanai<br />Web<br />Studio</a>
         </div>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/gondora"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="image/git.svg" alt="GitHub" />
         </a>
         <a href="mailto:osanai.1014@gmail.com">Mail : osanai.1014@gmail.com</a>
       </div>
       <address>&copy; Osanai Web Studio</address>
     </footer>
-    <!-- <script>
-      (function (d) {
-        var config = {
-            kitId: "pmu7bsu",
-            scriptTimeout: 3000,
-            async: true,
-          },
-          h = d.documentElement,
-          t = setTimeout(function () {
-            h.className =
-              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-          }, config.scriptTimeout),
-          tk = d.createElement("script"),
-          f = false,
-          s = d.getElementsByTagName("script")[0],
-          a;
-        h.className += " wf-loading";
-        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
-        tk.async = true;
-        tk.onload = tk.onreadystatechange = function () {
-          a = this.readyState;
-          if (f || (a && a != "complete" && a != "loaded")) return;
-          f = true;
-          clearTimeout(t);
-          try {
-            Typekit.load(config);
-          } catch (e) {}
-        };
-        s.parentNode.insertBefore(tk, s);
-      })(document);
-    </script> -->
+
     <script src="js/jquery-3.6.1.min.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
   </body>

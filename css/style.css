@@ -1,10 +1,5 @@
 @charset "UTF-8";
 /*　reset css　*/
-html {
-  scroll-padding-top: 80px;
-  scroll-behavior: smooth;
-}
-
 html.wf-active,
 html.loading-delay {
   visibility: visible;
@@ -114,7 +109,6 @@ body {
   font-family: "Noto Sans JP", sans-serif;
   color: #474747;
   font-size: clamp(16px, 1.4vw, 20px);
-  background: #ffe7d2;
 }
 
 a {
@@ -172,6 +166,12 @@ p {
   padding: 0 100px;
 }
 
+@media screen and (max-width: 540px) {
+  .inner,
+  .inner_1200 {
+    padding: 0 20px;
+  }
+}
 .pc_768,
 .pc_767,
 .pc_540 {
@@ -326,10 +326,20 @@ header
   letter-spacing: 0.1em;
   font-weight: bold;
 }
+@media screen and (max-width: 540px) {
+  .side_wrap {
+    top: 10px;
+  }
+}
 .side_wrap .openbtn1 {
   width: 50px;
   margin-bottom: 40vh;
   cursor: pointer;
+}
+@media screen and (max-width: 540px) {
+  .side_wrap .openbtn1 {
+    margin-bottom: 0;
+  }
 }
 .side_wrap .openbtn1 span {
   display: block;
@@ -358,6 +368,11 @@ header
 }
 .side_wrap .openbtn1.active span:nth-of-type(3) {
   transform: translateY(0px) rotate(45deg);
+}
+@media screen and (max-width: 540px) {
+  .side_wrap .scroll {
+    display: none;
+  }
 }
 .side_wrap .scroll a {
   position: relative;
@@ -417,6 +432,7 @@ header {
   position: fixed;
   padding: 0 20px;
   width: 100%;
+  z-index: 99;
   transition: 0.3s;
 }
 header .inner {
@@ -431,8 +447,11 @@ header .logo {
   z-index: 1000;
   transition: 0.5s ease-out;
 }
+header.scroll {
+  background: #fff;
+}
 header.scroll .logo {
-  font-size: 1vw;
+  font-size: 19px;
 }
 
 /**************************************************************
@@ -544,16 +563,6 @@ main .mv ul li img {
 main .mv ul li img:hover {
   scale: 1.2;
 }
-@media screen and (max-width: 1000px) {
-  main .mv ul {
-    margin-top: 2rem;
-    height: unset;
-    flex-wrap: wrap;
-  }
-  main .mv ul li {
-    width: 100%;
-  }
-}
 main .mv .title {
   display: flex;
   justify-content: space-between;
@@ -561,7 +570,7 @@ main .mv .title {
   width: 30%;
   margin-left: auto;
   height: 6em;
-  margin-top: -6rem;
+  margin-top: -7.5rem;
   position: relative;
   z-index: 1;
 }
@@ -574,9 +583,18 @@ main .mv .title .link_box {
   align-items: end;
 }
 @media screen and (max-width: 1000px) {
+  main .mv ul {
+    margin-top: 2rem;
+  }
+  main .mv ul li {
+    width: 45%;
+  }
+  main .mv ul li:nth-of-type(3) {
+    display: none;
+  }
   main .mv .title {
-    margin: 3rem 0 0;
-    width: 50%;
+    margin: 2rem 0 0;
+    width: 100%;
   }
 }
 main .skills h3 {
@@ -585,7 +603,7 @@ main .skills h3 {
 main .skills .grid {
   display: grid;
   grid-template-columns: 30% 62%;
-  gap: 0;
+  gap: 2rem;
   justify-content: space-between;
 }
 main .skills li {
@@ -600,10 +618,20 @@ main .skills i {
   font-size: 1.2em;
   color: #63e6be;
 }
+@media screen and (max-width: 1000px) {
+  main .skills .grid {
+    grid-template-columns: 1fr;
+  }
+  main .skills ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
 main .about .grid {
   display: grid;
   grid-template-columns: 55% 39%;
-  gap: 0;
+  gap: 2rem;
   justify-content: space-between;
 }
 main .about .grid .text_wrap {
@@ -619,6 +647,14 @@ main .about .grid .text_wrap .text_box p:not(:last-of-type) {
 }
 main .about .grid .text_wrap .bottom {
   font-size: 0.7em;
+}
+@media screen and (max-width: 1000px) {
+  main .about .grid {
+    grid-template-columns: 1fr;
+  }
+}
+main .works #itemCount {
+  text-align: right;
 }
 main .works ul {
   margin-bottom: 1.5rem;
@@ -645,7 +681,7 @@ main .works ul li .title_but {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0;
+  gap: 2rem;
 }
 main .works ul li .title_but a {
   display: flex;
@@ -661,6 +697,7 @@ main .works ul li .title_but a::before {
   border-radius: 100%;
   background: #474747;
   margin-top: 0.2em;
+  flex-shrink: 0;
 }
 main .works ul li .title_but span {
   position: relative;
@@ -689,6 +726,12 @@ main .works ul li .title_but span::after {
 main .works ul li .title_but span.open_but {
   rotate: 135deg;
 }
+@media screen and (max-width: 768px) {
+  main .works ul li .title_but {
+    font-size: 14px;
+    padding: 14px;
+  }
+}
 main .works ul li .box {
   padding: 0 4em;
   height: 0;
@@ -697,14 +740,18 @@ main .works ul li .box {
   box-sizing: content-box;
   display: grid;
   grid-template-columns: 20% 75%;
-  gap: 0;
+  gap: 2rem;
   justify-content: space-between;
+}
+main .works ul li .box.open {
+  padding: 2.25em 4em;
 }
 main .works ul li .box .left p:not(:last-of-type) {
   margin-bottom: 2.5rem;
 }
 main .works ul li .box .right {
   display: flex;
+  gap: 2rem;
   flex-direction: column;
 }
 main .works ul li .box .right p {
@@ -712,6 +759,22 @@ main .works ul li .box .right p {
 }
 main .works ul li .box .right .arrow_link {
   margin-left: auto;
+}
+@media screen and (max-width: 950px) {
+  main .works ul li .box {
+    grid-template-columns: 1fr;
+    padding: 0 2rem;
+  }
+  main .works ul li .box.open {
+    padding: 1.5rem;
+  }
+  main .works ul li .box .left {
+    display: flex;
+    gap: 2rem;
+  }
+  main .works ul li .box .left p {
+    margin-bottom: unset;
+  }
 }
 main .works button.arrow_link {
   background: unset;

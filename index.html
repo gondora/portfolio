@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfoliotest</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Osanai Web Studio</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="css/style.css?20221006" />
@@ -12,59 +13,1117 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
 
   <body>
     <header>
-      <div class="inner nijimi">
-        <div class="logo">
-          <a href="index.html">Osanai<br />Portfolio</a>
-        </div>
-        <div class="openbtn1"><span></span><span></span><span></span></div>
-        <nav id="g-nav">
-          <div id="g-nav-list">
-            <!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
-            <ul>
-              <li>
-                <a href="#">
-                  <span class="defo">Portfolio</span>
-                  <span class="change">Portfolio</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span class="defo">Skills</span>
-                  <span class="change">Skills</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span class="defo">Profile</span>
-                  <span class="change">Profile</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+      <div class="logo">
+        <a href="index.html">Osanai<br />Web<br />Studio</a>
       </div>
+
+      <div class="side_wrap">
+        <div class="openbtn1">
+          <span></span><span></span><span></span><span class="menu">MENU</span>
+        </div>
+        <div class="scroll">
+          <p>scroll</p>
+        </div>
+      </div>
+
+      <nav id="g-nav">
+        <div id="g-nav-list">
+          <!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
+          <ul>
+            <li>
+              <a href="#">
+                <span class="defo">Portfolio</span>
+                <span class="change">Portfolio</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="defo">Skills</span>
+                <span class="change">Skills</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="defo">Profile</span>
+                <span class="change">Profile</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main>
-      <section class="mv nijimi">
-        <h1>Osanai<br />Portfolio</h1>
+      <section class="mv">
+        <div class="inner">
+          <div class="text">
+            <h1>コードで描く、未来のカタチ。</h1>
+            <p>
+              WordPressのテーマ作成を得意とし、<br />
+              PHP、HTML、CSS、JavaScript を駆使してWebサイトを構築します。
+            </p>
+
+            <ul>
+              <li><img src="/image/work01.jpg" /></li>
+              <li><img src="/image/work01.jpg" /></li>
+              <li><img src="/image/work01.jpg" /></li>
+            </ul>
+          </div>
+
+          <div class="title">
+            <h2>
+              Works
+              <span>制作実績</span>
+            </h2>
+            <a href="#works" class="arrow_link">View more<span></span></a>
+          </div>
+        </div>
+      </section>
+      <!-- mv -->
+
+      <section class="skills">
+        <div class="inner">
+          <h2>Skills<span>スキル</span></h2>
+          <div class="grid">
+            <ul>
+              <li>
+                <i class="fas fa-code"></i>
+                <div class="text">
+                  <h3>HTML/CSS</h3>
+                  <p>レスポンシブ対応</p>
+                </div>
+              </li>
+              <li>
+                <i class="fab fa-js"></i>
+                <div class="text">
+                  <h3>JavaScript</h3>
+                  <p>動きのある表現に対応</p>
+                </div>
+              </li>
+              <li>
+                <i class="fab fa-wordpress"></i>
+                <div class="text">
+                  <h3>WordPress</h3>
+                  <p>テーマ開発、カスタム投稿</p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-server"></i>
+                <div class="text">
+                  <h3>PHP</h3>
+                  <p>WordPressテーマ開発に使用</p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-paint-brush"></i>
+                <div class="text">
+                  <h3>XD、Photoshop、Illustrator、Figma</h3>
+                  <p>UIデザインの確認</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-laptop-code"></i>
+                <div class="text">
+                  <h3>Visual Studio Code、Dreamweaver</h3>
+                  <p>コーディングに使用</p>
+                </div>
+              </li>
+            </ul>
+
+            <figure>
+              <img src="/image/skills.jpg" />
+            </figure>
+          </div>
+          <!-- grid -->
+        </div>
+        <!-- inner -->
+      </section>
+      <!-- skills -->
+
+      <section class="about">
+        <div class="inner">
+          <h2>
+            About
+            <span>プロフィール</span>
+          </h2>
+
+          <div class="grid">
+            <div class="text_wrap">
+              <div class="text_box">
+                <h3>
+                  「ホテル業界からWeb制作の世界へ」 <br class="sp_768" />
+                  WordPressを中心にサイト構築を支援
+                </h3>
+                <p>
+                  もともとはホテルマンとして接客業に従事し、2019年から副業でWeb制作をスタート。<br />
+                  ホテル業界で働く中で、Webの可能性を感じ、スキルを磨いてきました。<br />
+                  そして、2020年のコロナをきっかけに本格的に転職を決意し、Web制作の道へ進みました。
+                </p>
+                <p>
+                  現在は個人事業主としてWebサイト制作を中心に活動しながら、<br />
+                  Webデザイナー向けの講師としても指導を行っています。<br />
+                  HTML・CSS・JavaScript・PHPを駆使し、<br />機能性を兼ね備えたWebサイトを作ることを得意としています。
+                </p>
+                <p>
+                  特にWordPressのテーマ開発を得意としており、オリジナルデザインやカスタマイズにも柔軟に対応可能。<br />
+                  クライアント様の目的に合わせた最適なサイトを提供できるよう、日々学び、成長を続けています。
+                </p>
+              </div>
+              <!-- text -->
+
+              <div class="bottom">
+                <p>
+                  事業主　小山内　竜一<br />
+                  事業形態　個人事業主<br />
+                  事業内容　Web制作･講師<br />
+                  Mail　osanai.1014@gmail.com
+                </p>
+              </div>
+            </div>
+            <!-- text_wrap -->
+            <figure>
+              <img src="/image/about.jpg" />
+            </figure>
+          </div>
+          <!-- grid -->
+        </div>
+        <!-- inner -->
       </section>
 
-      <section id="portfolio" class="sec01">
-        <div class="back_gray">
-          <div class="inner">
-            <h2 class="nijimi">Portfolio</h2>
-          </div>
+      <section id="works" class="works">
+        <div class="inner_1200">
+          <h2>
+            Works
+            <span>制作実績</span>
+          </h2>
+
+          <h3>WordPressテーマ開発 × Web制作 実績</h3>
+          <ul id="list">
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://www.mrkm.cc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >株式会社ムラカミ</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    東京都にあるグッズ制作会社。<br />
+                    WordPressテーマを作成しカスタム投稿などを活用し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://www.mrkm.cc/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://www.higashinipponliner.co.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >東日本ライナー</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県にある施工会社。<br />
+                    WordPressテーマを作成しカスタム投稿などを活用し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://www.higashinipponliner.co.jp/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://wennet.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Women’s Energy Network</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    東京都にあるエネルギーの専門家と一般市民との「パイプ役」として、活動する団体。<br />
+                    WordPressテーマを作成しカスタム投稿やカスタムフィールドを導入し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://wennet.jp/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://era-assoc.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ERA エネルギーリソースアグリゲーション事業協会</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    東京都にある分散型エネルギーの普及促進と関係機関との連携を推進する団体。<br />
+                    WordPressテーマを作成し個別にカスタム投稿など作成し、管理しやすいテーマを作成いたしました。
+                    またプラグインを使用しメンバー専用のログイン画面、専用ページの作成も行いました。
+                  </p>
+
+                  <a
+                    href="https://era-assoc.com/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://www.oarai-info.jp/tuktuk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >トゥクトゥク</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript/Jquery
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    茨城県の大洗町にある観光協会。<br />
+                    トゥクトゥクのイベントなどを発信するためのホームページ。<br />
+                    JavaScriptを使用し、アニメーションなどを多様に使い見ていて楽しくなるホームページ。<br />
+                    WordPressテーマを作成しカスタム投稿やカスタムフィールドを使用し、管理しやすいテーマを作成いたしました。<br />
+                    また、モーダルを使用しページ遷移せずに詳細を見れるようにいたしました。
+                  </p>
+
+                  <a
+                    href="https://www.oarai-info.jp/tuktuk/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://www.oarai-info.jp/tuktuk/tuktuk-rental/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >トゥクトゥク　レンタルページ</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript/Jquery
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    茨城県の大洗町にある観光協会。<br />
+                    トゥクトゥクの下層ページにあたるがこちらはHTMLベースで作成。
+                    こちらもJavaScriptなどを活用し多様にアニメーションがあり見ていて楽しくなるページ。
+                  </p>
+
+                  <a
+                    href="https://www.oarai-info.jp/tuktuk/tuktuk-rental/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://wen30th.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Women’s Energy　Network　30th Anniversary</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript/Jquery
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    東京都にあるエネルギーの専門家と一般市民との「パイプ役」として、活動する団体。<br />
+                    HTMLで作成し、JavaScriptなどでローディング画面などのアニメーションを実装。
+                  </p>
+
+                  <a
+                    href="https://wen30th.jp/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://www.smartread.jp/lp2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >スマートリード</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript/Jquery
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    東京都にある業務サポートの会社。<br />
+                    HTMLで作成。JavaScriptやJqueryを使用し、アニメーションを実装。
+                  </p>
+
+                  <a
+                    href="https://www.smartread.jp/lp2"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://matching.idec.or.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >IDEC横浜</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    神奈川県にある、ものづくりのためのマッチングサイト<br />
+                    WordPressテーマを作成しカスタム投稿やカスタムフィールドを活用し、管理しやすいテーマを作成いたしました。
+                    また、ランダムに企業が出力されるようWordPressのループを工夫をいたしました。
+                  </p>
+
+                  <a
+                    href="https://matching.idec.or.jp/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://trip.hirakawa-kankou.com/map/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >猿賀公園一帯観光マップ</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県にある観光施設<br />
+                    WordPressテーマを作成し日本語･英語にわけ、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://trip.hirakawa-kankou.com/map/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://www.aomorikita-h.asn.ed.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >青森県立青森北高等学校</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県の高校。<br />
+                    HTMLで制作し、Jqueryなどを使用し、タブの実装などを行いました。
+                  </p>
+
+                  <a
+                    href="https://www.aomorikita-h.asn.ed.jp/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://satoshijimi.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >さとうしじみ屋</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県のしじみ貝販売を行っている会社。<br />
+                    HTMLで制作したシンプルなページです。
+                  </p>
+
+                  <a
+                    href="https://satoshijimi.com/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://st-aomori.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >一般社団法人　青森言語聴覚士会</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県にある言語聴覚士<br />
+                    WordPressテーマを作成しカスタム投稿などを活用し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://st-aomori.org/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://www.miolaw.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >弁護士法人 みお綜合法律事務所</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    大阪・神戸・京都を中心に活動している弁護士事務所のサイト<br />
+                    WordPressテーマを作成しカスタム投稿などを活用し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://www.miolaw.jp/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://www.mio-kyoto.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >弁護士法人みお 京都駅前事務所</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    弁護士法人みおの京都支店のホームページ。<br />
+                    WordPressテーマを作成しカスタム投稿などを活用し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://www.mrkm.cc/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://ghs.hirosaki-u.ac.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >弘前大学医学部保健学科・大学院保健学研究科</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県の弘前市にある医学部保健学科のホームページ<br />
+                    WordPressテーマを作成しカスタム投稿やカスタムフィールドなどを活用し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://ghs.hirosaki-u.ac.jp/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://tohoku-work.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >東北ワーク株式会社</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県にある建築工事や再生エネルギー事業を行っている会社。<br />
+                    WordPressテーマを作成しカスタム投稿などを活用し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://tohoku-work.com/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://hiiragi-hudousan.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >柊不動産</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県にある不動産会社。<br />
+                    WordPressテーマを作成しカスタム投稿やカスタムフィールドなどを活用し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://hiiragi-hudousan.com/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://sougosyatai.com/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >有限会社 相互車体</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県に板金塗装などを行っている会社。<br />
+                    HTMLで制作し、シンプルなホームページです。
+                  </p>
+
+                  <a
+                    href="https://sougosyatai.com/index.html"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://f.shinwashoji.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >新和商事 不動産部</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県にある住宅設備を行っている会社<br />
+                    WordPressテーマを制作し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://f.shinwashoji.net/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="https://www.saitou-js.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >さいとう住宅設備</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県にある住宅設備を行っている会社<br />
+                    WordPressテーマを作成し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="https://www.saitou-js.com/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title_but">
+                <a
+                  href="http://seiwa-aom.co.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >成和産業株式会社</a
+                >
+                <span></span>
+              </div>
+
+              <div class="box">
+                <div class="left">
+                  <p>
+                    ≪担当業務・役割≫<br />
+                    コーディング･開発
+                  </p>
+                  <p>
+                    ≪使用言語など≫<br />
+                    ･WordPress<br />
+                    ･PHP<br />
+                    ･HTML/CSS<br />
+                    ･JavaScript
+                  </p>
+                </div>
+                <div class="right">
+                  <p>
+                    青森県にある土工工事などを行っている会社。<br />
+                    WordPressテーマを作成しカスタム投稿などを活用し、管理しやすいテーマを作成いたしました。
+                  </p>
+
+                  <a
+                    href="http://seiwa-aom.co.jp/"
+                    class="arrow_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Web site<span></span
+                  ></a>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <button id="loadMore" class="arrow_link">
+            View more<span></span>
+          </button>
         </div>
       </section>
     </main>
 
-    <footer></footer>
-    <script>
+    <footer>
+      <div class="f_inner">
+        <div class="logo">
+          <a href="index.html">Osanai<br />Web<br />Studio</a>
+        </div>
+        <a href="http://" target="_blank" rel="noopener noreferrer">
+          <img src="/image/git.svg" alt="GitHub" />
+        </a>
+        <a href="mailto:osanai.1014@gmail.com">Mail : osanai.1014@gmail.com</a>
+      </div>
+      <address>&copy; Osanai Web Studio</address>
+    </footer>
+    <!-- <script>
       (function (d) {
         var config = {
             kitId: "pmu7bsu",
@@ -94,7 +1153,7 @@
         };
         s.parentNode.insertBefore(tk, s);
       })(document);
-    </script>
+    </script> -->
     <script src="js/jquery-3.6.1.min.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
   </body>

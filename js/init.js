@@ -88,6 +88,7 @@ function handleScrollAnimation(selector, addClass, offset) {
     }
   });
 }
+
 $(window).scroll(function () {
   handleScrollAnimation(".add_color", "back_color", -300); //カラー
   handleScrollAnimation(".fadeInTrigger", "fadeIn", 80); //ふわっと出現
@@ -97,4 +98,67 @@ $(window).scroll(function () {
     "sec08 fadeIn",
     150
   );
+});
+
+//ボタン展開
+document.querySelectorAll("#works li .title_but span").forEach((button) => {
+  button.addEventListener("click", function () {
+    const box = this.closest("li").querySelector(".box");
+
+    if (box.classList.contains("open")) {
+      // 閉じるとき
+      box.style.height = "0px";
+      box.style.padding = "0 4em";
+      box.classList.remove("open");
+      this.classList.remove("open_but");
+    } else {
+      // 開くとき
+      const textHeight = box.scrollHeight; // 実際の高さを取得
+      // box.style.height = textHeight;
+      box.style.height = textHeight + "px";
+      box.style.padding = "2.25em 4em";
+      box.classList.add("open");
+      this.classList.add("open_but");
+    }
+  });
+});
+
+//li 10件表示
+document.addEventListener("DOMContentLoaded", function () {
+  const listItems = document.querySelectorAll("#list li");
+  const loadMoreButton = document.getElementById("loadMore");
+  let itemsPerPage = 10;
+  let currentIndex = 0;
+
+  function showItems() {
+    let count = 0;
+    for (
+      let i = currentIndex;
+      i < currentIndex + itemsPerPage && i < listItems.length;
+      i++
+    ) {
+      listItems[i].style.display = "block"; // 一度表示
+      setTimeout(() => {
+        listItems[i].classList.add("show"); // フェードインアニメーション
+      }, count * 100); // 0.1秒ごとに順番に表示
+      count++;
+    }
+    currentIndex += itemsPerPage;
+
+    // すべてのアイテムを表示したらボタンをフェードアウト
+    if (currentIndex >= listItems.length) {
+      setTimeout(() => {
+        loadMoreButton.style.opacity = "0"; // フェードアウト
+        setTimeout(() => {
+          loadMoreButton.style.display = "none"; // 完全に消す
+        }, 500);
+      }, count * 100);
+    }
+  }
+
+  // 初回表示
+  showItems();
+
+  // ボタンをクリックしたら次の10件を表示
+  loadMoreButton.addEventListener("click", showItems);
 });

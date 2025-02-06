@@ -7,7 +7,12 @@
   grid-template-columns: repeat($rep, 1fr);
   gap: $gap;
 }
-@mixin flex($gap) {
+@mixin grid_size($size, $gap: 0) {
+  display: grid;
+  grid-template-columns: $size;
+  gap: $gap;
+}
+@mixin flex($gap: 0) {
   display: flex;
   gap: $gap;
 }

@@ -1,12 +1,28 @@
 //adobeフォントの表示遅れ解消
-setTimeout(function () {
-  if (
-    document.getElementsByTagName("html")[0].classList.contains("wf-active") !=
-    true
-  ) {
-    document.getElementsByTagName("html")[0].classList.add("loading-delay");
-  }
-}, 3000);
+// setTimeout(function () {
+//   if (
+//     document.getElementsByTagName("html")[0].classList.contains("wf-active") !=
+//     true
+//   ) {
+//     document.getElementsByTagName("html")[0].classList.add("loading-delay");
+//   }
+// }, 3000);
+
+//mv　フェードイン
+document.addEventListener("DOMContentLoaded", function () {
+  const listItems = document.querySelectorAll("#imgList li");
+
+  listItems.forEach((item, index) => {
+    item.style.opacity = "0"; // 初期状態で非表示
+    item.style.transform = "translateY(-50px)"; // 下から登場
+    item.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+
+    setTimeout(() => {
+      item.style.opacity = "1";
+      item.style.transform = "translateY(0)";
+    }, index * 400); // 0.3秒ごとに順番に表示
+  });
+});
 
 //spナビ
 jQuery(function ($) {
@@ -36,36 +52,74 @@ $(function () {
   });
 });
 
-//スクロール
-const scrollNum = document.getElementById("scroll-num"); //スクロール量計測
+//scrollとTotopスクロール
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollButton = document.getElementById("scroll");
+  const scrollText = scrollButton.querySelector("span");
+  const footer = document.querySelector("footer");
+  let isAtFooter = false; // フッターに到達したかの判定用
 
-window.addEventListener("scroll", function () {
-  // scrollNum.textContent = window.pageYOffset; //スクロール量計測
+  function toggleScrollClass() {
+    const footerRect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-  let targets = document.querySelectorAll(".fadeInTrigger"); //アニメーションさせたい要素
-  let targets02 = document.querySelectorAll(".flow"); //アニメーションさせたい要素
-
-  //スクロールイベント
-  var scroll = window.scrollY; //スクロール量を取得
-  var windowHeight = window.innerHeight; //画面の高さを取得
-  for (let target of targets) {
-    //ターゲット要素がある分、アニメーション用のクラスをつける処理を繰り返す
-    var targetPos = target.getBoundingClientRect().top + scroll; //ターゲット要素の位置を取得
-    if (scroll > targetPos - windowHeight) {
-      //スクロール量 > ターゲット要素の位置
-      target.classList.add("fadeIn"); //is-animatedクラスを加える
+    // フッターに到達した場合
+    if (footerRect.top <= windowHeight && !isAtFooter) {
+      isAtFooter = true; // 到達判定をtrueに
+      scrollButton.classList.add("toTop"); // クラスを追加
+      fadeText(scrollText, "Top"); // テキスト変更
+    }
+    // フッターから離れた場合
+    else if (footerRect.top > windowHeight && isAtFooter) {
+      isAtFooter = false; // 到達判定をfalseに
+      scrollButton.classList.remove("toTop"); // クラスを削除
+      fadeText(scrollText, "Scroll"); // テキストを元に戻す
     }
   }
 
-  for (let target of targets02) {
-    // ターゲット要素がある分、アニメーション用のクラスをつける処理を繰り返す
-    var targetPos = target.getBoundingClientRect().top + scroll; // ターゲット要素の位置を取得
-    if (scroll > targetPos - windowHeight) {
-      // スクロール量 > ターゲット要素の位置
-      target.classList.add("img_flow"); // img_flowクラスを加える
-    }
+  function fadeText(element, newText) {
+    element.style.transition = "opacity 0.1s ease"; // スムーズなフェード
+    element.style.opacity = 0; // フェードアウト
+    setTimeout(() => {
+      element.textContent = newText;
+      element.style.opacity = 1; // フェードイン
+    }, 100); // 300ms後に変更
   }
+
+  // スクロールイベントで監視
+  window.addEventListener("scroll", toggleScrollClass);
 });
+
+//スクロール
+// const scrollNum = document.getElementById("scroll-num"); //スクロール量計測
+
+// window.addEventListener("scroll", function () {
+//   // scrollNum.textContent = window.pageYOffset; //スクロール量計測
+
+//   let targets = document.querySelectorAll(".fadeInTrigger"); //アニメーションさせたい要素
+//   let targets02 = document.querySelectorAll(".flow"); //アニメーションさせたい要素
+
+//   //スクロールイベント
+//   var scroll = window.scrollY; //スクロール量を取得
+//   var windowHeight = window.innerHeight; //画面の高さを取得
+//   for (let target of targets) {
+//     //ターゲット要素がある分、アニメーション用のクラスをつける処理を繰り返す
+//     var targetPos = target.getBoundingClientRect().top + scroll; //ターゲット要素の位置を取得
+//     if (scroll > targetPos - windowHeight) {
+//       //スクロール量 > ターゲット要素の位置
+//       target.classList.add("fadeIn"); //is-animatedクラスを加える
+//     }
+//   }
+
+//   for (let target of targets02) {
+//     // ターゲット要素がある分、アニメーション用のクラスをつける処理を繰り返す
+//     var targetPos = target.getBoundingClientRect().top + scroll; // ターゲット要素の位置を取得
+//     if (scroll > targetPos - windowHeight) {
+//       // スクロール量 > ターゲット要素の位置
+//       target.classList.add("img_flow"); // img_flowクラスを加える
+//     }
+//   }
+// });
 //スクロールここまで
 
 //ヘッダーがスクロールしたらクラス付与
@@ -77,28 +131,28 @@ window.addEventListener("scroll", function () {
 });
 
 //スクロールでクラス付与
-function handleScrollAnimation(selector, addClass, offset) {
-  $(selector).each(function () {
-    var elemPos = $(this).offset().top - offset;
-    var scroll = $(window).scrollTop();
-    var windowHeight = $(window).height();
+// function handleScrollAnimation(selector, addClass, offset) {
+//   $(selector).each(function () {
+//     var elemPos = $(this).offset().top - offset;
+//     var scroll = $(window).scrollTop();
+//     var windowHeight = $(window).height();
 
-    if (scroll >= elemPos - windowHeight) {
-      $(this).addClass(addClass);
-    }
-  });
-}
+//     if (scroll >= elemPos - windowHeight) {
+//       $(this).addClass(addClass);
+//     }
+//   });
+// }
 
-$(window).scroll(function () {
-  handleScrollAnimation(".add_color", "back_color", -300); //カラー
-  handleScrollAnimation(".fadeInTrigger", "fadeIn", 80); //ふわっと出現
-  handleScrollAnimation(".flow", "img_flow", 80);
-  handleScrollAnimation(
-    ".recruit_top .sec08 .fadeInTrigger",
-    "sec08 fadeIn",
-    150
-  );
-});
+// $(window).scroll(function () {
+//   handleScrollAnimation(".add_color", "back_color", -300); //カラー
+//   handleScrollAnimation(".fadeInTrigger", "fadeIn", 80); //ふわっと出現
+//   handleScrollAnimation(".flow", "img_flow", 80);
+//   handleScrollAnimation(
+//     ".recruit_top .sec08 .fadeInTrigger",
+//     "sec08 fadeIn",
+//     150
+//   );
+// });
 
 //ボタン展開
 document.querySelectorAll("#works li .title_but span").forEach((button) => {
@@ -114,7 +168,6 @@ document.querySelectorAll("#works li .title_but span").forEach((button) => {
     } else {
       // 開くとき
       const textHeight = box.scrollHeight; // 実際の高さを取得
-      // box.style.height = textHeight;
       box.style.height = textHeight + "px";
       box.style.padding = "2.25em 4em";
       box.classList.add("open");

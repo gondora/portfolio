@@ -72,3 +72,5 @@ const clickEvent = () => {
   }
 };
 clickEvent();
+
+console.log(getComputedStyle(document.documentElement).fontSize);

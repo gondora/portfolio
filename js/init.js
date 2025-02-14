@@ -111,7 +111,7 @@ window.addEventListener("scroll", function () {
 });
 
 //ボタン展開
-document.querySelectorAll("#works li .title_but span").forEach((button) => {
+document.querySelectorAll(".list li .title_but span").forEach((button) => {
   button.addEventListener("click", function () {
     const box = this.closest("li").querySelector(".box");
 
@@ -134,7 +134,7 @@ document.querySelectorAll("#works li .title_but span").forEach((button) => {
 
 //li 10件表示
 document.addEventListener("DOMContentLoaded", function () {
-  const listItems = document.querySelectorAll("#list li");
+  const listItems = document.querySelectorAll("#works .list li");
   const loadMoreButton = document.getElementById("loadMore");
   let itemsPerPage = 10;
   let currentIndex = 0;
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //liの数取得
 document.addEventListener("DOMContentLoaded", function () {
   // `#list` の中の `li` をすべて取得
-  const listItems = document.querySelectorAll("#list li");
+  const listItems = document.querySelectorAll("#works #list li");
 
   // `li` の数を取得
   const itemCount = listItems.length;
@@ -204,4 +204,40 @@ document.addEventListener("DOMContentLoaded", function () {
       li.id = `num${num}`;
     }
   });
+});
+// document.addEventListener("DOMContentLoaded", function () {
+//   const header = document.querySelector("header");
+//   const main = document.querySelector("main");
+
+//   if (header && main) {
+//     const headerHeight = header.offsetHeight;
+//     main.style.paddingTop = `${headerHeight}px`;
+
+//     // ウィンドウサイズが変わったときも更新
+//     window.addEventListener("resize", () => {
+//       main.style.paddingTop = `${header.offsetHeight}px`;
+//     });
+//   }
+// });
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector("header");
+  const main = document.querySelector("main");
+
+  if (header && main) {
+    // ルート要素のフォントサイズを取得（1remのピクセル値）
+    const rootFontSize = parseFloat(
+      getComputedStyle(document.documentElement).fontSize
+    );
+    const additionalPadding = 3 * rootFontSize; // 3rem の値
+
+    const updatePadding = () => {
+      const headerHeight = header.offsetHeight;
+      main.style.paddingTop = `${headerHeight + additionalPadding}px`;
+    };
+
+    updatePadding(); // 初回適用
+
+    // ウィンドウサイズが変わったときも更新
+    window.addEventListener("resize", updatePadding);
+  }
 });

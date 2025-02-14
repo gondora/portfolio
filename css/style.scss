@@ -7,7 +7,7 @@ html {
   // scroll-behavior: smooth;
   //adobeフォント使用の際表示
   // visibility: hidden;
-  // font-size: clamp(14px, 1.4vw, 20px);
+  font-size: clamp(14px, 1.4vw, 20px);
 }
 //adobeフォント使用の際表示
 html.wf-active,
@@ -265,10 +265,13 @@ main
 main {
   position: relative;
   overflow: hidden;
-  padding-top: 9em;
+  // padding-top: 9em;
   // @media screen and (max-width: 1000px){
   //   padding-top: ;
   // }
+  &.page {
+    padding-bottom: 10rem;
+  }
 
   section {
     margin-bottom: 10rem;
@@ -456,90 +459,14 @@ main {
     #itemCount {
       text-align: right;
     }
-    ul {
+    .list {
       margin-bottom: 1.5rem;
       li {
         display: none; /* 初期状態では非表示 */
         opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        &.show {
-          opacity: 1;
-          transform: translateY(0);
-          display: block;
-        }
-
-        &:nth-of-type(odd) {
-          background: #ececec;
-        }
-        &:nth-of-type(even) {
-          background: #fff;
-        }
-        .title_but {
-          padding: 1em 2.25em;
-          @include flex_bet_cen(2rem);
-          a {
-            @include flex_a_cen(0.5em);
-            font-weight: bold;
-            font-size: 1.2em;
-            &::before {
-              content: "";
-              width: 0.67em;
-              aspect-ratio: 1;
-              border-radius: 100%;
-              background: #474747;
-              margin-top: 0.2em;
-
-              flex-shrink: 0;
-            }
-          }
-          span {
-            position: relative;
-            width: 2.5em;
-            aspect-ratio: 1;
-            cursor: pointer;
-            transition: 0.4s;
-            &::before,
-            &::after {
-              content: "";
-              background: #474747;
-              width: 2px;
-              height: 1.6em;
-              position: absolute;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            }
-            &::before {
-              top: 50%;
-            }
-            &::after {
-              rotate: 90deg;
-              top: 50%;
-              transform-origin: 25% 0;
-            }
-
-            &.open_but {
-              rotate: 135deg;
-            }
-          }
-          @media screen and (max-width: 768px) {
-            font-size: 14px;
-            padding: 14px;
-          }
-        } //title_but
         .box {
-          // padding: 2.25em 4em;
-          padding: 0 4em;
-          height: 0;
-          overflow: hidden;
-          transition: all 0.4s ease-in-out;
-          box-sizing: content-box;
           @include grid_size(20% 75%, 2rem);
           justify-content: space-between;
-          &.open {
-            padding: 2.25em 4em;
-          }
-
           .left {
             p {
               &:not(:last-of-type) {
@@ -560,10 +487,6 @@ main {
           }
           @media screen and (max-width: 950px) {
             grid-template-columns: 1fr;
-            padding: 0 2rem;
-            &.open {
-              padding: 1.5rem;
-            }
             .left {
               @include flex(2rem);
               p {
@@ -572,18 +495,105 @@ main {
             }
           }
         }
-      } //li
-    } //ul
-
-    button.arrow_link {
-      background: unset;
-      border: unset;
-      transition: opacity 0.5s ease-out;
-      font-family: inherit;
-      color: inherit;
-      padding: 0 0 0.5em;
-      text-align: left;
-      margin-left: auto;
+      }
     }
   } //works
+  .list {
+    li {
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+        display: block;
+      }
+
+      &:nth-of-type(odd) {
+        background: #ececec;
+      }
+      &:nth-of-type(even) {
+        background: #fff;
+      }
+      .title_but {
+        padding: 1em 2.25em;
+        @include flex_bet_cen(2rem);
+        a {
+          @include flex_a_cen(0.5em);
+          font-weight: bold;
+          font-size: 1.2em;
+          &::before {
+            content: "";
+            width: 0.67em;
+            aspect-ratio: 1;
+            border-radius: 100%;
+            background: #474747;
+            margin-top: 0.2em;
+
+            flex-shrink: 0;
+          }
+        }
+        span {
+          position: relative;
+          width: 2.5em;
+          aspect-ratio: 1;
+          cursor: pointer;
+          transition: 0.4s;
+          &::before,
+          &::after {
+            content: "";
+            background: #474747;
+            width: 2px;
+            height: 1.6em;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          &::before {
+            top: 50%;
+          }
+          &::after {
+            rotate: 90deg;
+            top: 50%;
+            transform-origin: 25% 0;
+          }
+
+          &.open_but {
+            rotate: 135deg;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          font-size: 14px;
+          padding: 14px;
+        }
+      } //title_but
+      .box {
+        padding: 0 4em;
+        height: 0;
+        overflow: hidden;
+        transition: all 0.4s ease-in-out;
+        box-sizing: content-box;
+
+        &.open {
+          padding: 2.25em 4em;
+        }
+
+        @media screen and (max-width: 950px) {
+          padding: 0 2rem;
+          &.open {
+            padding: 1.5rem;
+          }
+        }
+      }
+    } //li
+  } //list
+  #loadMore {
+    background: unset;
+    border: unset;
+    transition: opacity 0.5s ease-out;
+    font-family: inherit;
+    color: inherit;
+    padding: 0 0 0.5em;
+    text-align: left;
+    margin-left: auto;
+  } //#loadMore
 }

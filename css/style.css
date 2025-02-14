@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /*　reset css　*/
+html {
+  font-size: clamp(14px, 1.4vw, 20px);
+}
+
 html.wf-active,
 html.loading-delay {
   visibility: visible;
@@ -424,7 +428,9 @@ main
 main {
   position: relative;
   overflow: hidden;
-  padding-top: 9em;
+}
+main.page {
+  padding-bottom: 10rem;
 }
 main section {
   margin-bottom: 10rem;
@@ -602,41 +608,75 @@ main .about .grid .text_wrap .bottom {
 main .works #itemCount {
   text-align: right;
 }
-main .works ul {
+main .works .list {
   margin-bottom: 1.5rem;
 }
-main .works ul li {
+main .works .list li {
   display: none; /* 初期状態では非表示 */
   opacity: 0;
+}
+main .works .list li .box {
+  display: grid;
+  grid-template-columns: 20% 75%;
+  gap: 2rem;
+  justify-content: space-between;
+}
+main .works .list li .box .left p:not(:last-of-type) {
+  margin-bottom: 2.5rem;
+}
+main .works .list li .box .right {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+main .works .list li .box .right p {
+  margin-bottom: auto;
+}
+main .works .list li .box .right .arrow_link {
+  margin-left: auto;
+}
+@media screen and (max-width: 950px) {
+  main .works .list li .box {
+    grid-template-columns: 1fr;
+  }
+  main .works .list li .box .left {
+    display: flex;
+    gap: 2rem;
+  }
+  main .works .list li .box .left p {
+    margin-bottom: unset;
+  }
+}
+main .list li {
   transform: translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-main .works ul li.show {
+main .list li.show {
   opacity: 1;
   transform: translateY(0);
   display: block;
 }
-main .works ul li:nth-of-type(odd) {
+main .list li:nth-of-type(odd) {
   background: #ececec;
 }
-main .works ul li:nth-of-type(even) {
+main .list li:nth-of-type(even) {
   background: #fff;
 }
-main .works ul li .title_but {
+main .list li .title_but {
   padding: 1em 2.25em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
 }
-main .works ul li .title_but a {
+main .list li .title_but a {
   display: flex;
   align-items: center;
   gap: 0.5em;
   font-weight: bold;
   font-size: 1.2em;
 }
-main .works ul li .title_but a::before {
+main .list li .title_but a::before {
   content: "";
   width: 0.67em;
   aspect-ratio: 1;
@@ -645,14 +685,14 @@ main .works ul li .title_but a::before {
   margin-top: 0.2em;
   flex-shrink: 0;
 }
-main .works ul li .title_but span {
+main .list li .title_but span {
   position: relative;
   width: 2.5em;
   aspect-ratio: 1;
   cursor: pointer;
   transition: 0.4s;
 }
-main .works ul li .title_but span::before, main .works ul li .title_but span::after {
+main .list li .title_but span::before, main .list li .title_but span::after {
   content: "";
   background: #474747;
   width: 2px;
@@ -661,68 +701,42 @@ main .works ul li .title_but span::before, main .works ul li .title_but span::af
   left: 50%;
   transform: translate(-50%, -50%);
 }
-main .works ul li .title_but span::before {
+main .list li .title_but span::before {
   top: 50%;
 }
-main .works ul li .title_but span::after {
+main .list li .title_but span::after {
   rotate: 90deg;
   top: 50%;
   transform-origin: 25% 0;
 }
-main .works ul li .title_but span.open_but {
+main .list li .title_but span.open_but {
   rotate: 135deg;
 }
 @media screen and (max-width: 768px) {
-  main .works ul li .title_but {
+  main .list li .title_but {
     font-size: 14px;
     padding: 14px;
   }
 }
-main .works ul li .box {
+main .list li .box {
   padding: 0 4em;
   height: 0;
   overflow: hidden;
   transition: all 0.4s ease-in-out;
   box-sizing: content-box;
-  display: grid;
-  grid-template-columns: 20% 75%;
-  gap: 2rem;
-  justify-content: space-between;
 }
-main .works ul li .box.open {
+main .list li .box.open {
   padding: 2.25em 4em;
 }
-main .works ul li .box .left p:not(:last-of-type) {
-  margin-bottom: 2.5rem;
-}
-main .works ul li .box .right {
-  display: flex;
-  gap: 2rem;
-  flex-direction: column;
-}
-main .works ul li .box .right p {
-  margin-bottom: auto;
-}
-main .works ul li .box .right .arrow_link {
-  margin-left: auto;
-}
 @media screen and (max-width: 950px) {
-  main .works ul li .box {
-    grid-template-columns: 1fr;
+  main .list li .box {
     padding: 0 2rem;
   }
-  main .works ul li .box.open {
+  main .list li .box.open {
     padding: 1.5rem;
   }
-  main .works ul li .box .left {
-    display: flex;
-    gap: 2rem;
-  }
-  main .works ul li .box .left p {
-    margin-bottom: unset;
-  }
 }
-main .works button.arrow_link {
+main #loadMore {
   background: unset;
   border: unset;
   transition: opacity 0.5s ease-out;
